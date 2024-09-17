@@ -95,6 +95,51 @@ Porém basta adicionar na URL "/swagger/index.html", que o swagger da nossa apli
 
 ![Screenshot 2024-09-16 211547](https://github.com/user-attachments/assets/d24582d3-b56c-48f9-974b-122142784fe8)
 
+## Passo 3
+
+### Testar todos os endpoints das duas tabelas que estão no swagger!!!
+
+Primeiro realize o POST e aperte em execute!
+
+![Screenshot 2024-09-16 221938](https://github.com/user-attachments/assets/42b113c8-b630-41aa-a534-360cf98a181a)
+
+Depois realize o GET e aperte em execute! Este metodo retorna todos os clientes cadastrados no banco de dados!
+
+![Screenshot 2024-09-16 222259](https://github.com/user-attachments/assets/d6d970ac-f3d8-4915-b0fe-0ce9d2647884)
+
+Depois realize o GET pelo id e aperte em execute! Este metodo irá retornar o cliente em que voce esta procurando pelo ID!
+
+![Screenshot 2024-09-16 222532](https://github.com/user-attachments/assets/2b015022-3562-430c-82ac-81f7b34b3874)
+
+![Screenshot 2024-09-16 222653](https://github.com/user-attachments/assets/957e68f4-29d0-4fe6-a3f2-1168667d9211)
+
+Depois realize o UPDATE e aperte em execute! Insira o id do cliente em que deseja atualizar algum dado e altere!
+
+![Screenshot 2024-09-16 223024](https://github.com/user-attachments/assets/4f5e650f-136e-4371-aa75-d517782185c3)
+
+![Screenshot 2024-09-16 225148](https://github.com/user-attachments/assets/0186105f-37f4-4490-9b0d-d47c2fd406c7)
+
+
+Realize o GET novamente para ver a alteração ou veja pelo banco de dados!!!
+
+O acesso do banco de dados da aplicação esta no arquivo "appsettings.json"
+
+![Screenshot 2024-09-16 224943](https://github.com/user-attachments/assets/9cb7a113-595f-40fd-b2c7-09b439dac2a5)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
