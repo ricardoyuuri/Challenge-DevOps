@@ -133,6 +133,90 @@ E por fim vamos realizar o DELETE pelo ID!
 
 ## Agora é so testar todos os endpoints da tabela consultoria e ver a persistencia dos dados no banco!!!
 
+## Scripts JSON do CRUD
+
+# Tabela Cliente
+
+### GET
+
+Retorna todos os clientes salvos no banco de dados
+
+### POST 
+
+Cole o JSON e altere os dados, menos o ID, pois é gerado automaticamente!
+
+```
+{
+  "clienteId": 0,
+  "cnpj": "string",
+  "nome": "string",
+  "logradouro": "string",
+  "ramodeAtuacao": "string",
+  "email": "string",
+  "senha": 0
+}
+```
+
+### GET pelo ID 
+
+Somente retorna o ID digitado
+
+### PUT
+
+Digite o ID e altere o dado!
+
+```
+{
+  "clienteId": 0,
+  "cnpj": "string",
+  "nome": "string",
+  "logradouro": "string",
+  "ramodeAtuacao": "string",
+  "email": "string",
+  "senha": 0
+}
+```
+
+### DELETE
+
+Soemente o numero do ID
+
+# Tabela consultoria 
+
+### GET 
+
+Retorna todos as consultorias salvas no banco de dados
+
+### POST 
+
+Cole o JSON e altere os dados, menos o ID, pois é gerado automaticamente!
+
+```
+{
+  "consultoriaId": 0,
+  "nomeConsultoria": "string"
+}
+```
+
+### GET pelo ID
+
+Somente retorna o ID digitado
+
+### PUT
+
+Digite o ID e altere o dado!
+
+```
+{
+  "consultoriaId": 0,
+  "nomeConsultoria": "string"
+}
+```
+
+### DELETE
+
+Soemente o numero do ID
+
 
 
 
