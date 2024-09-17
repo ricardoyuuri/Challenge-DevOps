@@ -119,12 +119,21 @@ Depois realize o UPDATE e aperte em execute! Insira o id do cliente em que desej
 
 ![Screenshot 2024-09-16 225148](https://github.com/user-attachments/assets/0186105f-37f4-4490-9b0d-d47c2fd406c7)
 
-
 Realize o GET novamente para ver a alteração ou veja pelo banco de dados!!!
 
 O acesso do banco de dados da aplicação esta no arquivo "appsettings.json"
 
 ![Screenshot 2024-09-16 224943](https://github.com/user-attachments/assets/9cb7a113-595f-40fd-b2c7-09b439dac2a5)
+
+E por fim vamos realizar o DELETE pelo ID!
+
+![Screenshot 2024-09-16 225515](https://github.com/user-attachments/assets/26903859-4e02-495b-b832-7ca725bd08b6)
+
+![Screenshot 2024-09-16 225537](https://github.com/user-attachments/assets/91806011-cb8c-4600-9e78-4dd5b5d48ee1)
+
+## Agora é so testar todos os endpoints da tabela consultoria e ver a persistencia dos dados no banco!!!
+
+
 
 
 
