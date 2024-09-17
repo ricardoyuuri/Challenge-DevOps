@@ -217,6 +217,252 @@ Digite o ID e altere o dado!
 
 Soemente o numero do ID
 
+# No final o serviço de WebApp ficará assim na azure!!!
+
+![Screenshot 2024-09-16 232906](https://github.com/user-attachments/assets/abef7613-7612-4296-b440-8be1367fe6fc)
+
+# Agora vamos criar o banco SQL da Azure na nuvem 
+
+Para isso crie um novo recurso e selecione "SQL Database"!
+
+![Screenshot 2024-09-16 233126](https://github.com/user-attachments/assets/ec3e7000-2d29-46de-a80f-3635725a5edb)
+
+Selecione o mesmo grupo de recurso que criamos para o WebApp e defina um nome para o seu banco de dados na nuvem!!
+
+![Screenshot 2024-09-16 233322](https://github.com/user-attachments/assets/dd8cdd00-0ee1-4593-ba3e-764fb454049a)
+
+Após isso crie um novo servidor e defina um nome e selecione EastUs ou EastUS 2 
+
+![Screenshot 2024-09-16 233451](https://github.com/user-attachments/assets/59417f07-7bf4-4a0b-a954-fa8ee286296a)
+
+Habilite a autenticação SQL e defina um logon e uma senha! No nosso o caso o logon é "adm-sqldb-targetcustomer" e a senha "Fiap@2tds2024"!!!
+
+![Screenshot 2024-09-16 233612](https://github.com/user-attachments/assets/0c5be04f-5530-47a2-a671-7e0711584afb)
+
+Em computação + armazenamento selecione o plano básico!!!
+
+![Screenshot 2024-09-16 233830](https://github.com/user-attachments/assets/9f49757c-1b66-466a-b72d-3db720885342)
+
+Em rede selecione o "ponto de extremidade público" e nas regras de firewall deixe tudo como "sim"!!!
+
+![Screenshot 2024-09-16 234030](https://github.com/user-attachments/assets/dc780e76-ebfb-49c3-8d23-26e3c4a6e8f6)
+
+Após isso clique em "Criar" e espere a implantação!!!
+
+![Screenshot 2024-09-16 234245](https://github.com/user-attachments/assets/f28a74f7-98be-449d-b8d3-0118a622cb14)
+
+Assim que criado clique em "Ir para o recurso" e depois em "Editor de consultas" nas opções da lateral esquerda!!!
+
+![image](https://github.com/user-attachments/assets/b93e6e45-3600-4d01-8381-cc9187b5e7a8)
+
+Irá aparecer uma tela de acesso ao banco de dados!!! Coloque o logon e a senha que definimos!!!
+
+![Screenshot 2024-09-16 234523](https://github.com/user-attachments/assets/313355a3-debb-48e7-88fc-1277b1e871fc)
+
+Irá ser exebida uma tela onde iremos colocar o nosso script!!!
+
+![Screenshot 2024-09-16 234631](https://github.com/user-attachments/assets/1a02a3d4-254a-47c7-96f3-5a70d5e0af3f)
+
+```
+--Criação da tabela com o drop
+DROP TABLE T_TC_CADASTRO;
+CREATE TABLE T_TC_CADASTRO(
+  id_cadastro NUMERIC NOT NULL,
+  nr_cnpj NUMERIC(14) NOT NULL,
+  varchar_senha VARCHAR(60) NOT NULL,
+  nm_razaosocial VARCHAR(80) NOT NULL,
+  CONSTRAINT T_TC_CADASTRO_PK PRIMARY KEY (id_cadastro)
+);
+ 
+--CRUD
+ 
+--Create
+INSERT INTO T_TC_CADASTRO (id_cadastro, nr_cnpj, varchar_senha, nm_razaosocial) VALUES (1, 12345678901234, 'senha123', 'Empresa Exemplo LTDA');
+INSERT INTO T_TC_CADASTRO (id_cadastro, nr_cnpj, varchar_senha, nm_razaosocial) VALUES (2, 23456789012345, 'senha234', 'Empresa Exemplo LTDB');
+INSERT INTO T_TC_CADASTRO (id_cadastro, nr_cnpj, varchar_senha, nm_razaosocial) VALUES (3, 34567890123456, 'senha345', 'Empresa Exemplo LTDC');
+INSERT INTO T_TC_CADASTRO (id_cadastro, nr_cnpj, varchar_senha, nm_razaosocial) VALUES (4, 45678901234567, 'senha456', 'Empresa Exemplo LTDD');
+INSERT INTO T_TC_CADASTRO (id_cadastro, nr_cnpj, varchar_senha, nm_razaosocial) VALUES (5, 56789012345678, 'senha567', 'Empresa Exemplo LTDE');
+ 
+--Read
+SELECT * FROM T_TC_CADASTRO;
+ 
+--Read pelo id
+SELECT * FROM T_TC_CADASTRO
+WHERE id_cadastro = 1;
+ 
+SELECT * FROM T_TC_CADASTRO
+WHERE id_cadastro = 2;
+ 
+SELECT * FROM T_TC_CADASTRO
+WHERE id_cadastro = 3;
+ 
+SELECT * FROM T_TC_CADASTRO
+WHERE id_cadastro = 4;
+ 
+SELECT * FROM T_TC_CADASTRO
+WHERE id_cadastro = 5;
+ 
+--Read pelo cnpj
+SELECT * FROM T_TC_CADASTRO
+WHERE nr_cnpj = 56789012345678;
+ 
+--Update no nome da razão social
+UPDATE T_TC_CADASTRO
+SET nm_razaosocial = 'Empresa Exemplo Atualizada LTDA'
+WHERE id_cadastro = 1;
+ 
+UPDATE T_TC_CADASTRO
+SET nm_razaosocial = 'Empresa Exemplo Atualizada LTDB'
+WHERE id_cadastro = 2;
+ 
+UPDATE T_TC_CADASTRO
+SET nm_razaosocial = 'Empresa Exemplo Atualizada LTDC'
+WHERE id_cadastro = 3;
+ 
+UPDATE T_TC_CADASTRO
+SET nm_razaosocial = 'Empresa Exemplo Atualizada LTDD'
+WHERE id_cadastro = 4;
+ 
+UPDATE T_TC_CADASTRO
+SET nm_razaosocial = 'Empresa Exemplo Atualizada LTDE'
+WHERE id_cadastro = 5;
+ 
+--Update de senha 
+UPDATE T_TC_CADASTRO
+SET varchar_senha = 'bananinha123'
+WHERE id_cadastro = 5;
+ 
+--Delete pelo id
+DELETE FROM T_TC_CADASTRO
+WHERE id_cadastro = 1;
+ 
+DELETE FROM T_TC_CADASTRO
+WHERE id_cadastro = 2;
+ 
+DELETE FROM T_TC_CADASTRO
+WHERE id_cadastro = 3;
+ 
+DELETE FROM T_TC_CADASTRO
+WHERE id_cadastro = 4;
+ 
+DELETE FROM T_TC_CADASTRO
+WHERE id_cadastro = 5;
+ 
+--Delete pelo cnpj
+DELETE FROM T_TC_CADASTRO
+WHERE nr_cnpj = 56789012345678;
+ 
+--Criação da tabela relacionada com drop
+DROP TABLE T_TC_CONSULTA;
+CREATE TABLE T_TC_CONSULTA(
+  id_consulta NUMERIC NOT NULL,
+  ds_consulta VARCHAR(80) NOT NULL,
+  dt_consulta DATE NOT NULL,
+  blob_csv_arquivo VARBINARY(MAX) NOT NULL,
+  id_cadastro NUMERIC NOT NULL,
+  CONSTRAINT T_TC_CONSULTA_PK PRIMARY KEY (id_consulta),
+  CONSTRAINT T_TC_CADASTRO_CONSULTA_FK FOREIGN KEY (id_cadastro) REFERENCES T_TC_CADASTRO(id_cadastro)
+);
+ 
+--CRUD
+ 
+--Create
+INSERT INTO T_TC_CONSULTA (id_consulta, ds_consulta, dt_consulta, blob_csv_arquivo, id_cadastro) VALUES (1, 'Consulta sobre impostos', '2002-10-12', CAST(0x48656C6C6F AS VARBINARY(MAX)), 1);
+INSERT INTO T_TC_CONSULTA (id_consulta, ds_consulta, dt_consulta, blob_csv_arquivo, id_cadastro) VALUES (2, 'Consulta sobre exportação', '2002-11-05', CAST(0x56656E646173 AS VARBINARY(MAX)), 2);
+INSERT INTO T_TC_CONSULTA (id_consulta, ds_consulta, dt_consulta, blob_csv_arquivo, id_cadastro) VALUES (3, 'Consulta sobre importação', '2002-09-22', CAST(0x4573746F717565 AS VARBINARY(MAX)), 3);
+INSERT INTO T_TC_CONSULTA (id_consulta, ds_consulta, dt_consulta, blob_csv_arquivo, id_cadastro) VALUES (4, 'Consulta sobre regulamentação', '2002-03-07', CAST(0x466F726E656 AS VARBINARY(MAX)), 4);
+INSERT INTO T_TC_CONSULTA (id_consulta, ds_consulta, dt_consulta, blob_csv_arquivo, id_cadastro) VALUES (5, 'Consulta sobre inovação', '2002-02-15', CAST(0x46696E616 AS VARBINARY(MAX)), 5);
+ 
+--Read
+SELECT * FROM T_TC_CONSULTA;
+ 
+--Read pelo id 
+SELECT * FROM T_TC_CONSULTA
+WHERE id_consulta = 1;
+ 
+SELECT * FROM T_TC_CONSULTA
+WHERE id_consulta = 2;
+ 
+SELECT * FROM T_TC_CONSULTA
+WHERE id_consulta = 3;
+ 
+SELECT * FROM T_TC_CONSULTA
+WHERE id_consulta = 4;
+ 
+SELECT * FROM T_TC_CONSULTA
+WHERE id_consulta = 5;
+ 
+--Read pela data da consulta
+SELECT * FROM T_TC_CONSULTA
+WHERE dt_consulta = '2002-10-12';
+ 
+--Update da descrição da consulta
+UPDATE T_TC_CONSULTA
+SET ds_consulta = 'Consulta sobre impostos atualizada'
+WHERE id_consulta = 1;
+ 
+UPDATE T_TC_CONSULTA
+SET ds_consulta = 'Consulta sobre exportação atualizada'
+WHERE id_consulta = 2;
+ 
+UPDATE T_TC_CONSULTA
+SET ds_consulta = 'Consulta sobre importação atualizada'
+WHERE id_consulta = 3;
+ 
+UPDATE T_TC_CONSULTA
+SET ds_consulta = 'Consulta sobre regulamentação atualizada'
+WHERE id_consulta = 4;
+ 
+UPDATE T_TC_CONSULTA
+SET ds_consulta = 'Consulta sobre inovação atualizada'
+WHERE id_consulta = 5;
+ 
+--Update da data da consulta
+UPDATE T_TC_CONSULTA
+SET dt_consulta = '2000-10-12'
+WHERE id_consulta = 5;
+ 
+--Delete pelo id
+DELETE FROM T_TC_CONSULTA
+WHERE id_consulta = 1;
+ 
+DELETE FROM T_TC_CONSULTA
+WHERE id_consulta = 2;
+ 
+DELETE FROM T_TC_CONSULTA
+WHERE id_consulta = 3;
+ 
+DELETE FROM T_TC_CONSULTA
+WHERE id_consulta = 4;
+ 
+DELETE FROM T_TC_CONSULTA
+WHERE id_consulta = 5;
+ 
+--Delete pela data da consulta
+DELETE FROM T_TC_CONSULTA
+WHERE dt_consulta = '2000-10-12';
+```
+
+# Cole o script no console e realize a criação das tabelas (uma de cada vez) e os seus devidos CRUDS (um de cada vez)
+
+## Após realizar as tabelas e seus devidos cruds, podemos ver que as tabelas foram criadas, na parte de tabelas na lateral esquerda do console!!!
+
+![Screenshot 2024-09-16 235315](https://github.com/user-attachments/assets/c706b19e-05fb-4d85-baf7-8e960d746b41)
+
+# Por fim podemos ver a criação do banco de dados dentro do grupo de recursos!!!
+
+![Screenshot 2024-09-16 235457](https://github.com/user-attachments/assets/aa0130a9-09a8-4956-8485-881e12ebe4c2)
+
+
+
+
+
+
+
+
+
+
+
 
 
 
