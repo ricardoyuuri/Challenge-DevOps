@@ -17,7 +17,7 @@ recomendações para as empresas darem o segundo passo ao lidar com seus consumi
 
 ## Passo a passo de como criar uma Pipeline no Azure DevOps!!!
 
-## Passo 1
+# Passo 1
 
 ### Se logar na sua conta da Microsoft Azure e pesquisar na barrinha de pesquisas por "Azure DevOps"
 
@@ -29,7 +29,7 @@ Logo após irá aparecer a seguinte tela:
 
 Clique em "My Azure DevOps Organizations"
 
-## Passo 2
+# Passo 2
 
 ## Criação do projeto em que iremos subir nossa Pipeline!
 
@@ -47,7 +47,7 @@ Cole a URL do seu repositório e clique em "importar"
 
 ![image](https://github.com/user-attachments/assets/fb55a14c-5043-480e-b047-ae67e84dedff)
 
-## Passo 3
+# Passo 3
 
 ## Após o importe vá para a área de Pipeline e clique em "Create Pipeline"
 
@@ -141,7 +141,7 @@ Clique em "Build"!
 
 ![image](https://github.com/user-attachments/assets/c1897e63-2b3f-4c1d-8af6-a63c3f891d7f)
 
-## Passo 4 - Criação de um grupo de recursos com um WebApp na Azure
+# Passo 4 - Criação de um grupo de recursos com um WebApp na Azure
 
 ## Abra o Microsoft Azure e inicie um terminal no cloud shell!
 
@@ -151,7 +151,7 @@ Após iniciado, copie cole uma linha de cada vez no terminal e observe se tudo o
 
 ![image](https://github.com/user-attachments/assets/35b12e41-1241-4778-aefd-7b3ac56a64af)
 
-## Passo 5 - Criação de uma Release!
+# Passo 5 - Criação de uma Release!
 
 Volte para o Azure DevOps e clique em "Releases" e logo em seguida em "Create Pipeline"
 
@@ -193,108 +193,79 @@ Selecione a sua assinatura da Azure e depois em "Authorize", em seguida selecion
 
 ![image](https://github.com/user-attachments/assets/5121c7e1-692f-46da-86c8-081466046adb)
 
+No campo de Run on Agent, iremos fazer as seguintes alterações:
 
+Antes 
 
+![image](https://github.com/user-attachments/assets/f47f9628-db14-4994-a267-4c3c794d5d26)
 
+Depois 
 
+![image](https://github.com/user-attachments/assets/92821e8b-53fa-4d6c-b44a-dc286f067d55)
 
+Em Deploy Azure Service, não alteramos nada ah não ser conferir se o "Package or folder" está com ".zip" no final!
 
+![image](https://github.com/user-attachments/assets/d418d2ce-0a8f-44f7-9719-796b0d518233)
 
+Em Options fazemos a seguinte confecção!
 
+![image](https://github.com/user-attachments/assets/7d57a2b3-f090-4fb7-a1cc-d0dc24701c6d)
 
+Logo após, clicamos em "Save", adicionamos um comentário e em seguida clicamos em "Create release"!
 
+![image](https://github.com/user-attachments/assets/2bc6c69d-b530-4b76-a4d3-56887713aff9)
 
+Escreva um comentário se quiser e clique em "Create"!
 
+![image](https://github.com/user-attachments/assets/3ed81c61-2b56-4235-816e-5c0480a573a9)
 
+![image](https://github.com/user-attachments/assets/6dbb809b-0e77-4fbd-a806-2dd7c06611a3)
 
+## Clique em Logs e observe se todos obtiveram sucesso!
 
+![image](https://github.com/user-attachments/assets/dd649750-a20f-447e-b233-32997aa14032)
 
+# Passo 6 - Chegou a hora de vermos se tudo deu certo!
 
-Após isso realizamos o login com a nossa conta da azure! E ja vamos iniciar o processo de deploy da nossa aplicação .NET em um serviço de aplicativo da azure!!! 
+## Abra o serviço de aplicativo em que criamos na Azure e em seguida procure o domínio padrão!
 
-Neste primeiro passo nós clicamos com o botão direito em cima do "AppService" e selecionamos o "Create New Web App (Advanced)"
+![image](https://github.com/user-attachments/assets/5b2ad4e4-491b-4265-8261-1ca4d593cf86)
 
-![Screenshot 2024-09-16 202337](https://github.com/user-attachments/assets/28cd09b2-28ae-4f75-8c6a-f1cb48c9a825)
+Adicione "/swagger" na URL!
 
-Agora vamos definir um nome para o nosso WebApp!!!
+![image](https://github.com/user-attachments/assets/1af1f78f-896a-4bf8-af97-80e9066a7a45)
 
-![Screenshot 2024-09-16 204144](https://github.com/user-attachments/assets/1320f967-7a73-4169-b0ab-e75430d73961)
+## Nossa aplicação rodando!
 
-Logo após isso, iremos realizar a criação de um novo grupo de recursos e definir um nome!!!
+![image](https://github.com/user-attachments/assets/ba7634de-2cea-4961-b14b-eefc168980dc)
 
-![Screenshot 2024-09-16 204248](https://github.com/user-attachments/assets/6c4ae400-a85d-4e74-bf17-64aac5c1c450)
+# Passo 7
 
-No próximo passo iremos escolher qual será a linguagem da nossa runtime!!! Que no nosso caso é a .NET 8!!!
+## Teste todos os endpoints das duas tabelas que estão no swagger!!!
 
-![Screenshot 2024-09-16 204443](https://github.com/user-attachments/assets/fc94064a-0f1c-4f0e-b66f-627e2241fd9b)
-
-O próximo passo é selecionar o sistema operacional!!! Que no nosso caso é o linux!!!
-
-![Screenshot 2024-09-16 204953](https://github.com/user-attachments/assets/dd23b22f-2c54-4406-b36e-4e644687d905)
-
-Neste passo nós selecionamos o East Us por padrão!!!
-
-![Screenshot 2024-09-16 205213](https://github.com/user-attachments/assets/cc703080-6b7e-420f-84c1-e71c18d79610)
-
-Logo após, nós criamos um novo plano de serviço de aplicativo!!!
-
-![Screenshot 2024-09-16 205316](https://github.com/user-attachments/assets/445c1ce3-118c-4491-bd96-37f97f03e155)
-
-No próximo passo nós selecionamos o plano F1, pois o mesmo é gratuito e faz com que o nosso WebApp tenha um baixo custo!!!
-
-![Screenshot 2024-09-16 205439](https://github.com/user-attachments/assets/2f57f1e4-d5e6-4c6f-ba8b-858242ba122e)
-
-Na parte de App Insights nós iremos dar "skip for now"
-
-![image](https://github.com/user-attachments/assets/b9570bad-b47b-4fcd-93a8-ce7e3d0632c0)
-
-Após isso, irá aparecer um terminal mostrando a criação do nosso WebApp, e assim que finalizar irá aparecer uma mensagem no canto inferior esquerdo perguntando se você deseja realizar o deploy, nesta parte voce clica em "deploy" e iremos selecionar a pasta da nossa aplicação para o deploy!!!
-
-![Screenshot 2024-09-16 205925](https://github.com/user-attachments/assets/4d7a8c9d-20c6-4007-9c67-06fef9acea7c)
-
-Nesta parte clicamos em "AddConfig"
-
-![Screenshot 2024-09-16 210928](https://github.com/user-attachments/assets/d7079921-6633-4e8a-8c60-18cbdf494ee0)
-
-Após isso, irá iniciar o processo de deploy da nossa aplicação, que pode levar alguns minutos! Após o deploy ser finalizado, irá aparecer uma mensagem no canto inferior esquerdo perguntando se deseja abrir a aplicação em um browser, você confirma!!!
-
-![Screenshot 2024-09-16 211058](https://github.com/user-attachments/assets/faaf3890-ba06-4348-9cbc-419f4a0b4d98)
-
-Com isso o nosso navegador será aberto e de cara irá nos mostrar isso!!!
-
-![Screenshot 2024-09-16 211353](https://github.com/user-attachments/assets/300001dc-b96b-4d82-bcdb-bae2b34b544a)
-
-Porém basta adicionar na URL "/swagger/index.html", que o swagger da nossa aplicação será exibido!!!
-
-![Screenshot 2024-09-16 211547](https://github.com/user-attachments/assets/d24582d3-b56c-48f9-974b-122142784fe8)
-
-## Passo 3
-
-### Testar todos os endpoints das duas tabelas que estão no swagger!!!
-
-Primeiro realize o POST e aperte em execute!
-
-![Screenshot 2024-09-16 221938](https://github.com/user-attachments/assets/42b113c8-b630-41aa-a534-360cf98a181a)
-
-Depois realize o GET e aperte em execute! Este metodo retorna todos os clientes cadastrados no banco de dados!
+Primeiro realize o GET e clique em "Execute"! Este método retorna todos os clientes cadastrados no banco de dados!
 
 ![Screenshot 2024-09-16 222259](https://github.com/user-attachments/assets/d6d970ac-f3d8-4915-b0fe-0ce9d2647884)
 
-Depois realize o GET pelo id e aperte em execute! Este metodo irá retornar o cliente em que voce esta procurando pelo ID!
+Depois realize o POST e clique em "Execute"!
+
+![Screenshot 2024-09-16 221938](https://github.com/user-attachments/assets/42b113c8-b630-41aa-a534-360cf98a181a)
+
+Depois realize o GET pelo ID e clique em "Execute"! Este método irá retornar o cliente em que você está procurando pelo ID!
 
 ![Screenshot 2024-09-16 222532](https://github.com/user-attachments/assets/2b015022-3562-430c-82ac-81f7b34b3874)
 
 ![Screenshot 2024-09-16 222653](https://github.com/user-attachments/assets/957e68f4-29d0-4fe6-a3f2-1168667d9211)
 
-Depois realize o UPDATE e aperte em execute! Insira o id do cliente em que deseja atualizar algum dado e altere!
+Depois realize o UPDATE e clique em "Execute"! Insira o ID do cliente em que deseja atualizar algum dado e altere!
 
 ![Screenshot 2024-09-16 223024](https://github.com/user-attachments/assets/4f5e650f-136e-4371-aa75-d517782185c3)
 
 ![Screenshot 2024-09-16 225148](https://github.com/user-attachments/assets/0186105f-37f4-4490-9b0d-d47c2fd406c7)
 
-Realize o GET novamente para ver a alteração ou veja pelo banco de dados!!!
+Realize o GET novamente para ver a alteração ou veja pelo banco de dados!
 
-O acesso do banco de dados da aplicação esta no arquivo "appsettings.json"
+O acesso do banco de dados da aplicação esta no arquivo "appsettings.json"!
 
 ![Screenshot 2024-09-16 224943](https://github.com/user-attachments/assets/9cb7a113-595f-40fd-b2c7-09b439dac2a5)
 
@@ -304,15 +275,15 @@ E por fim vamos realizar o DELETE pelo ID!
 
 ![Screenshot 2024-09-16 225537](https://github.com/user-attachments/assets/91806011-cb8c-4600-9e78-4dd5b5d48ee1)
 
-## Agora é so testar todos os endpoints da tabela consultoria e ver a persistencia dos dados no banco!!!
+## Agora é só testar todos os endpoints da tabela consultoria e ver a persistência dos dados no banco!!!
 
-## Scripts JSON do CRUD
+## Scripts JSON do CRUD!
 
-# Tabela Cliente
+## Tabela Cliente
 
 ### GET
 
-Retorna todos os clientes salvos no banco de dados
+Retorna todos os clientes salvos no banco de dados!
 
 ### POST 
 
@@ -332,7 +303,7 @@ Cole o JSON e altere os dados, menos o ID, pois é gerado automaticamente!
 
 ### GET pelo ID 
 
-Somente retorna o ID digitado
+Somente retorna o ID digitado!
 
 ### PUT
 
@@ -352,13 +323,13 @@ Digite o ID e altere o dado!
 
 ### DELETE
 
-Soemente o numero do ID
+Soemente o número do ID!
 
-# Tabela consultoria 
+## Tabela consultoria 
 
 ### GET 
 
-Retorna todos as consultorias salvas no banco de dados
+Retorna todos as consultorias salvas no banco de dados!
 
 ### POST 
 
@@ -373,7 +344,7 @@ Cole o JSON e altere os dados, menos o ID, pois é gerado automaticamente!
 
 ### GET pelo ID
 
-Somente retorna o ID digitado
+Somente retorna o ID digitado!
 
 ### PUT
 
@@ -388,7 +359,7 @@ Digite o ID e altere o dado!
 
 ### DELETE
 
-Soemente o numero do ID
+Soemente o número do ID!
 
 # No final o serviço de WebApp ficará assim na azure!!!
 
