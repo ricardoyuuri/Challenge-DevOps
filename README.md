@@ -597,6 +597,10 @@ WHERE dt_consulta = '2000-10-12';
 
 ![Screenshot 2024-09-16 235457](https://github.com/user-attachments/assets/aa0130a9-09a8-4956-8485-881e12ebe4c2)
 
+# Link do vídeo:
+
+https://youtu.be/8eF05_UdQEE?feature=shared
+
 
 
 
