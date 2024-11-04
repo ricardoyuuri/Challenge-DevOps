@@ -15,27 +15,200 @@ promoções, de adaptar seus produtos, de lançar produtos novos e etc. Então n
 resumidamente trabalha com análise de personalidade do cliente, assim fazendo as melhores
 recomendações para as empresas darem o segundo passo ao lidar com seus consumidores!
 
-## Passo a passo de como criar o WebApp e realizar o deploy!!!
+## Passo a passo de como criar uma Pipeline no Azure DevOps!!!
 
 ## Passo 1
 
-### Clonar o repositório e abrir a pasta no VSCode
+### Se logar na sua conta da Microsoft Azure e pesquisar na barrinha de pesquisas por "Azure DevOps"
 
-![image](https://github.com/user-attachments/assets/3fcefd52-3326-4f84-8416-8a46445c06cc)
+![image](https://github.com/user-attachments/assets/34a0ff26-263b-4f0b-9f63-273f7795b437)
 
-Neste passo nós clonamos o codigo da nossa aplicação .NET e abrimos no Visual Studio Code! Porém para isto nós precisamos instalar duas extenções C#!
+Logo após irá aparecer a seguinte tela:
 
-![Screenshot 2024-09-16 202737](https://github.com/user-attachments/assets/7ae1aece-9502-4e05-893b-d9c3cddf9902)
+![image](https://github.com/user-attachments/assets/589e3ce4-c8e0-4954-ae22-23c84c835ec4)
+
+Clique em "My Azure DevOps Organizations"
 
 ## Passo 2
 
-## Começar a criação do WebApp pelo VSCode 
+## Criação do projeto em que iremos subir nossa Pipeline!
 
-Vamos precisar baixar duas extenções da Azure!!!
+![image](https://github.com/user-attachments/assets/7b8d1ea1-9e91-43e3-bcd5-b3f8e929993d)
 
-![Screenshot 2024-09-16 203650](https://github.com/user-attachments/assets/abc481bc-d8ec-4157-8059-c7afe13089b7)
+Vamos precisar fazer o clone do repositório da nossa apliação DOTNET!
 
-![Screenshot 2024-09-16 203714](https://github.com/user-attachments/assets/8a1cac2f-d4ba-4a05-a54c-4ae3c7aa3152)
+![image](https://github.com/user-attachments/assets/e9675098-2d75-4b6c-b3fe-e1dbb9117b8e)
+
+Após isso clique em Repos no menu lateral esquerdo, depois clique no nome da aplicação e em seguida em "Import Repository"
+
+![image](https://github.com/user-attachments/assets/43c7f8b1-c29e-4c6d-a651-c053586dedb3)
+
+Cole a URL do seu repositório e clique em "importar"
+
+![image](https://github.com/user-attachments/assets/fb55a14c-5043-480e-b047-ae67e84dedff)
+
+## Passo 3
+
+## Após o importe vá para a área de Pipeline e clique em "Create Pipeline"
+
+![image](https://github.com/user-attachments/assets/eeafd353-d9e7-481c-aa6b-9c53221c59dd)
+
+Clique em "Use the classic editor"
+
+![image](https://github.com/user-attachments/assets/3be621ad-6541-4bcc-8675-4abec5cb036d)
+
+Clique em "Continue"
+
+![image](https://github.com/user-attachments/assets/4464c48b-6a2f-4625-aa81-48cbe103691f)
+
+Selecione o template de ASP.NET
+
+![image](https://github.com/user-attachments/assets/70becbf8-35b2-4c60-9169-8c65359ff284)
+
+## Agora vamos começar a configuração da nossa Pipeline
+
+No campo de Pipeline nós vamos deixar da seguinte forma:
+
+Antes
+
+![image](https://github.com/user-attachments/assets/7691f31a-343e-4ae9-bdc4-653088d01267)
+
+Depois
+
+![image](https://github.com/user-attachments/assets/7e909100-cac8-45cb-8417-f6789c2448f6)
+
+No campo de Agent Job 1 nós vamos deixar da seguinte forma:
+
+Antes 
+
+![image](https://github.com/user-attachments/assets/4a1b7397-d155-4265-8e7b-2bce5dd40c9d)
+
+Depois 
+
+![image](https://github.com/user-attachments/assets/1a1eb87f-f63d-4a72-ae9f-d3526cb4253a)
+
+No campo de Use NuGet nós vamos deixar da seguinte forma:
+
+Antes 
+
+![image](https://github.com/user-attachments/assets/9caff582-eaaa-4165-8759-fedf38f8c327)
+
+Depois 
+
+![image](https://github.com/user-attachments/assets/6f633199-430b-4d93-b20a-53a85eefd48c)
+
+Não iremos alterar nada no campo de NuGet Restore!
+
+No campo de Build Solution só iremos alterar o nome e deixar somente Build!
+
+![image](https://github.com/user-attachments/assets/0961e396-8342-46c2-85ea-f51ed76946de)
+
+O mesmo faremos com o campo de Test Assemblies! Mudando o nome para Teste!
+
+![image](https://github.com/user-attachments/assets/d4c627b7-9837-4f9e-bb94-2eb0e4fe1a9e)
+
+No campo de Publish symbols path iremos deixar da seguinte maneira:
+
+Antes 
+
+![image](https://github.com/user-attachments/assets/c3eb25d0-c674-4b70-b2aa-b662a60d5d93)
+
+Depois
+
+![image](https://github.com/user-attachments/assets/99bd1402-f245-452d-8986-16e18a6fdfe5)
+
+Lembre-se de clicar em "Authorize" no campo de "Azure Resource"
+
+No campo de Publish Artifact nâo iremos mudar nada!
+
+Em Triggers, iremos habilitar a função de "continuos integration" e selecionar a branch da nossa solução!
+
+![image](https://github.com/user-attachments/assets/0c7dbf7f-dd41-4173-9c31-fc471c82f0b1)
+
+Em Options, iremos mudar o campo de "Build job authorization scope" de "Current project", para "Project collection"!
+
+![image](https://github.com/user-attachments/assets/9ef615df-8c6f-42a9-80cc-d080857a9732)
+
+## Clique em "Save & queue" escreva um comentário se quiser e clique em "Save and run"!
+
+![image](https://github.com/user-attachments/assets/310acf1d-044d-4b25-bb1b-cd93fa52f6e7)
+
+Clique em "Build"!
+
+![image](https://github.com/user-attachments/assets/2390699b-6ef4-48c7-b53f-455d9e70951b)
+
+## Observe se todos os Logs obtiveram sucesso!
+
+![image](https://github.com/user-attachments/assets/c1897e63-2b3f-4c1d-8af6-a63c3f891d7f)
+
+## Passo 4 - Criação de um grupo de recursos com um WebApp na Azure
+
+## Abra o Microsoft Azure e inicie um terminal no cloud shell!
+
+![image](https://github.com/user-attachments/assets/3c8f6bb3-1efd-4938-b314-f0a8e0618278)
+
+Após iniciado, copie cole uma linha de cada vez no terminal e observe se tudo ocorrerá como o esperado!
+
+![image](https://github.com/user-attachments/assets/35b12e41-1241-4778-aefd-7b3ac56a64af)
+
+## Passo 5 - Criação de uma Release!
+
+Volte para o Azure DevOps e clique em "Releases" e logo em seguida em "Create Pipeline"
+
+![image](https://github.com/user-attachments/assets/5d0c8af3-02ca-4493-bcff-e08235a8b42b)
+
+Selecione a opção "Azure App Service deployment"!
+
+![image](https://github.com/user-attachments/assets/cea3b924-4532-4c1d-90a8-e603b7cd01e6)
+
+Logo em seguida, mude o "Stage name" de "Stage 1" para "Desenvolvimento"!
+
+![image](https://github.com/user-attachments/assets/9edd74a6-1b7d-495e-a256-c2c1d0b8ac8d)
+
+Em seguida clique em "Add an artifact" e no campo de "Source pipeline", selecione o nome da sua aplicação e depois adicione!
+
+![image](https://github.com/user-attachments/assets/9fbdffe5-979c-4b48-9458-b460e0c086ea)
+
+Clique neste símbolo!
+
+![image](https://github.com/user-attachments/assets/52eaba3e-d4a0-4df5-b3ef-1b3d3bd14164)
+
+Agora habilite a função de "Artifact filters", depois em "add" e selecione o nome da sua aplicação e depois selecine a branch!
+
+![image](https://github.com/user-attachments/assets/b95d9ad7-4685-4d50-a97c-97e8356b78a1)
+
+Agora clique em "1 job, 1 task"
+
+![image](https://github.com/user-attachments/assets/dc9b645e-f41b-4d81-a408-7e4860445663)
+
+## No campo de desenvolvimento iremos fazer as seguintes mudanças:
+
+Antes 
+
+![image](https://github.com/user-attachments/assets/8a491acb-0470-4062-afd6-7afddb3ddf97)
+
+Depois 
+
+Selecione a sua assinatura da Azure e depois em "Authorize", em seguida selecione o serviço de aplicativo que nós criamos na Azure através do cloud shell!
+
+![image](https://github.com/user-attachments/assets/5121c7e1-692f-46da-86c8-081466046adb)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 Após isso realizamos o login com a nossa conta da azure! E ja vamos iniciar o processo de deploy da nossa aplicação .NET em um serviço de aplicativo da azure!!! 
 
@@ -221,7 +394,7 @@ Soemente o numero do ID
 
 ![Screenshot 2024-09-16 232906](https://github.com/user-attachments/assets/abef7613-7612-4296-b440-8be1367fe6fc)
 
-# Agora vamos criar o banco SQL da Azure na nuvem 
+## Agora vamos criar o banco SQL da Azure na nuvem 
 
 Para isso crie um novo recurso e selecione "SQL Database"!
 
@@ -443,15 +616,16 @@ DELETE FROM T_TC_CONSULTA
 WHERE dt_consulta = '2000-10-12';
 ```
 
-# Cole o script no console e realize a criação das tabelas (uma de cada vez) e os seus devidos CRUDS (um de cada vez)
+## Cole o script no console e realize a criação das tabelas (uma de cada vez) e os seus devidos CRUDS (um de cada vez)
 
 ## Após realizar as tabelas e seus devidos cruds, podemos ver que as tabelas foram criadas, na parte de tabelas na lateral esquerda do console!!!
 
 ![Screenshot 2024-09-16 235315](https://github.com/user-attachments/assets/c706b19e-05fb-4d85-baf7-8e960d746b41)
 
-# Por fim podemos ver a criação do banco de dados dentro do grupo de recursos!!!
+## Por fim podemos ver a criação do banco de dados dentro do grupo de recursos!!!
 
 ![Screenshot 2024-09-16 235457](https://github.com/user-attachments/assets/aa0130a9-09a8-4956-8485-881e12ebe4c2)
+
 
 
 
