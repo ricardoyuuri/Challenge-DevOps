@@ -361,9 +361,9 @@ Digite o ID e altere o dado!
 
 Soemente o número do ID!
 
-# No final o serviço de WebApp ficará assim na azure!!!
+# No final o serviço de WebApp ficará assim na Azure!!!
 
-![Screenshot 2024-09-16 232906](https://github.com/user-attachments/assets/abef7613-7612-4296-b440-8be1367fe6fc)
+![image](https://github.com/user-attachments/assets/a0d67ffc-49ad-4aab-a7e3-af4cd8a256ae)
 
 ## Agora vamos criar o banco SQL da Azure na nuvem 
 
